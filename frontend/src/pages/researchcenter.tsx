@@ -1,6 +1,10 @@
 export default function ResearchCenter() {
 	return (
-		<div className="text-slate-200 min-h-screen p-8 text-xl">
+		<div className="text-slate-200 min-h-screen my-8 text-xl">
+				<div className="flex w-full justify-between mb-8">
+					<img src="/researchimage.jpg" className="w-[49%] rounded-xl ring-2 ring-red-400" />
+					<img src="/researchresult.jpeg" className="w-[49%] rounded-xl ring-2 ring-emerald-300" />
+				</div>
 			  <section className="mb-8">
 				
 				<h2 className="text-4xl font-semibold text-red-400 mb-4">
