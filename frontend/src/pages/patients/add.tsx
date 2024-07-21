@@ -7,30 +7,33 @@ const questionData: any = questionJson;
 
 export default function addPatient() {
 
-	const [userInputs, setUserInputs] = useState<any>({});
+	const [userInputs, setUserInputs] = useState<any>({}); // patient information form data
 	const router = useRouter();
 
 	const handleChange = (i: number, j: any) => {
 		const tempUserInputs: any = {...userInputs};
-		if(j.type == 'number') {
-			tempUserInputs[questionData.general[i].name] = parseInt(j.value);
-		} else {
-			tempUserInputs[questionData.general[i].name] = j.value;
-		}
+
+		// handles patient information types
+		if(j.type == 'number') tempUserInputs[questionData.general[i].name] = parseInt(j.value);
+		else tempUserInputs[questionData.general[i].name] = j.value;
+
 		setUserInputs(tempUserInputs);
 	}
 
 	const addPatient = () => {
 		if(Object.keys(userInputs).length != questionData.general.length) return;
+
+		// storing patient information to localStorage
 		const patientStorage = localStorage.getItem("patients");
+		
+		// initializes patient storage in localStorage if it does not exist already
 		if(patientStorage) {
 			const patientData = JSON.parse(patientStorage);
 			patientData.push(userInputs);
 			localStorage.setItem("patients", JSON.stringify(patientData));
-		} else {
-			localStorage.setItem("patients", JSON.stringify([userInputs]));
-		}
-		router.push("/");
+		} else localStorage.setItem("patients", JSON.stringify([userInputs]));
+
+		router.push("/"); // back to patient database
 	}
 
 	return (

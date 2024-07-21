@@ -5,18 +5,24 @@ import { FaPlus } from "react-icons/fa6";
 
 export default function Patient() {
 	const router = useRouter();
-	const [id, setId] = useState(null);
-	const [patient, setPatient] = useState(null);
-	const [tests, setTests] = useState([]);
+	const [id, setId] = useState(null); // patient ID
+	const [patient, setPatient] = useState(null); // patient data object; loaded from localStorage
+	const [tests, setTests] = useState([]); // patient tests data; loaded from localStorage
 
 	useEffect(() => {
 		if(!router.isReady) return;
+
+		// uses NextJS dynamic page router for patientID
 		const patientID: any = router.query.id;
 		setId(patientID);
+
+		// parsing patient JSON data from localStorage
 		const patientStorage = localStorage.getItem("patients");
 		if(!patientStorage) return;
 		const patientData = JSON.parse(patientStorage);
 		setPatient(patientData[patientID]);
+
+		// parsing test JSON data from localStorage
 		const testData = localStorage.getItem(`patient-${patientID}`);
 		if(!testData) return;
 		setTests(JSON.parse(testData));

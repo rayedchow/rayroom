@@ -7,6 +7,7 @@ export default function Home() {
   const [patients, setPatients] = useState([]);
 
   useEffect(() => {
+    // loading patient database from localStorage
     const patientStorage = localStorage.getItem("patients");
     if(patientStorage) {
       setPatients(JSON.parse(patientStorage));

@@ -8,16 +8,22 @@ const instruction: any = instructionData;
 export default function Analyze() {
 
 	const router = useRouter();
-	const [patient, setPatient] = useState(null);
-	const [testData, setTestData] = useState<any>(null);
+	const [patient, setPatient] = useState(null); // patient data object; loaded from localStorage
+	const [testData, setTestData] = useState<any>(null); // test data for specific patient test; loaded from localStorage
 
 	useEffect(() => {
 		if(!router.isReady) return;
+
+		// getting patient ID from nextJS page router
 		const patientID: any = router.query.id;
+
+		// parsing patient JSON data from localStorage
 		const patientStorage = localStorage.getItem("patients");
 		if(!patientStorage) return;
 		const patientData = JSON.parse(patientStorage);
 		setPatient(patientData[patientID]);
+
+		// parsing patient tests JSON data from localStorage and indexing for specific test using testID
 		const testData = localStorage.getItem(`patient-${router.query.id}`);
 		if(!testData) return;
 		if(!router.query.testID) return;
