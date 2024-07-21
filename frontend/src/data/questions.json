@@ -1,0 +1,42 @@
+{
+    "general": [
+		{
+			"name": "name",
+			"type": "input",
+			"question": "What is the patient's name?"
+		},
+        {
+            "name": "sex",
+            "type": "dropdown",
+            "question": "What is the patient's sex?",
+            "options": [
+                { "label": "Female", "value": 0 },
+                { "label": "Male", "value": 1 }
+            ]
+        },
+        {
+            "name": "age",
+            "type": "number",
+            "question": "What is the patient's age?"
+        },
+        {
+            "name": "state",
+            "type": "input",
+            "question": "What state is the patient a resident of?"
+        },
+        {
+            "name": "bmi",
+            "type": "number",
+            "question": "What is the patient's BMI (Body Mass Index)?"
+        },
+        {
+            "name": "smoking_status",
+            "type": "dropdown",
+            "question": "Is your patient a current smoker?",
+            "options": [
+                { "label": "True", "value": "True" },
+                { "label": "False", "value": "False" }
+            ]
+        }
+    ]
+}
