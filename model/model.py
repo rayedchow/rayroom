@@ -17,7 +17,7 @@ from PIL import Image
 # Creating coco instances
 from detectron2.data.datasets import register_coco_instances
 
-class_names = ['', 'elbow positive', 'fingers positive', 'forearm fracture', 'humerus fracture', 'humerus', 'shoulder fracture', 'wrist positive']
+class_names = ['', 'elbow fracture', 'fingers fracture', 'forearm fracture', 'humerus fracture', 'humerus injury', 'shoulder fracture', 'wrist fracture']
 
 for d in ["train", "valid", "test"]:
     register_coco_instances(f"bone_fractures_{d}", {},

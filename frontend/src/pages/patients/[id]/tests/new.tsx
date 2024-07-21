@@ -1,9 +1,8 @@
-import { ChangeEvent, LegacyRef, MutableRefObject, useEffect, useRef, useState } from "react"
+import { ChangeEvent, useEffect, useRef, useState } from "react"
 import { useRouter } from "next/router";
-import Link from "next/link";
 import axios from "axios";
 
-const CLASS_NAMES = ['', 'elbow positive', 'fingers positive', 'forearm fracture', 'humerus fracture', 'humerus', 'shoulder fracture', 'wrist positive']
+const CLASS_NAMES = ['', 'elbow fracture', 'fingers fracture', 'forearm fracture', 'humerus fracture', 'humerus injury', 'shoulder fracture', 'wrist fracture']
 
 export default function addPatient() {
 
@@ -43,17 +42,29 @@ export default function addPatient() {
 		setLoading(true);
 		axios.post("http://localhost:5000/fracture_model", { imgdata: uploadedImage }).then((res) => {
 
-			const predictions = [];
+			const predictions: any = {};
+			let prediction_title = "no fractures";
+			let curr_highest_acc = 0;
 			for(let i = 0; i < res.data.scores.length; i++) {
-				predictions.push({
-					type: CLASS_NAMES[res.data.classes[i]],
-					percentage: res.data.scores[i]*100
-				});
+				const className = CLASS_NAMES[res.data.classes[i]];
+				if(predictions[className]) {
+					predictions[className].count++;
+					predictions[className].percentage = Math.max(res.data.scores[i], predictions[className].percentage);
+				} else {
+					predictions[className] = {
+						count: 1,
+						percentage: res.data.scores[i]
+					}
+				} if(res.data.scores[i] > curr_highest_acc) {
+					curr_highest_acc = res.data.scores[i];
+					prediction_title = className;
+				}
 			}
 
 			tests.push({
 				result_img: res.data.img,
 				date: Date.now(),
+				prediction_title,
 				predictions
 			});
 			localStorage.setItem(`patient-${id}`, JSON.stringify(tests));

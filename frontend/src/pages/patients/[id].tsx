@@ -28,15 +28,12 @@ export default function Patient() {
 				{(patient && <>
 				<div className="flex justify-center text-center text-4xl font-semibold text-rose-400">ER Patient: {patient['name']}</div>
 				<div className="grid grid-cols-2 mt-16 gap-10 w-full">
-					{tests.map((test: any, i: any) => (
-						<Link className="min-h-72 flex flex-col justify-center items-center ring-2 ring-slate-200 rounded-xl bg-slate-800 cursor-pointer gap-2 text-center" href={`/patients/${id}/tests/${i}/analyze`}>
-							<div className="text-3xl font-semibold mt-3">X-Ray Imaging</div>
-							<div className="flex flex-col items-center text-center my-2 text-red-400 font-bold">
-								<div className="text-2xl text-red-500">Result</div>
-								<div className="text-2xl max-w-[80%]">{test.prediction}</div>
-							</div>
-							<div className="text-lg">{new Date(test.date).toDateString()}</div>
-							<div className="text-lg my-3 italic text-red-700">( click to analyze examination )</div>
+					{tests.reverse().map((test: any, i: any) => (
+						<Link className="min-h-72 flex flex-col justify-center items-center ring-2 ring-slate-200 rounded-xl bg-slate-800 cursor-pointer gap-4 text-center" href={`/patients/${id}/tests/${i}/analyze`}>
+							<div className="text-slate-200 text-4xl font-semibold mt-3">X-Ray Imaging</div>
+							<div className="text-red-400 font-bold text-2xl">{test.prediction_title}</div>
+							<div className="text-slate-300 text-lg">{new Date(test.date).toDateString()}</div>
+							<div className="text-lg my-3 italic text-red-300">( click to analyze examination )</div>
 						</Link>
 					))}
 					<Link className="min-h-72 flex justify-center items-center ring-2 ring-slate-200 rounded-xl bg-slate-900 cursor-pointer" href={`/patients/${id}/tests/new`}>
