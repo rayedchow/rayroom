@@ -1,0 +1,116 @@
+[
+  {
+    "id": "4d5e6f7a-8b9c-0d1e-2f3a-4b5c6d7e8f9a",
+    "patientId": "1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d",
+    "testType": "BLOOD_TEST",
+    "testDateTime": "2023-04-15T10:30:00",
+    "performedBy": "Dr. Robert Brown",
+    "resultValues": {
+      "hemoglobin": 14.5,
+      "whiteBloodCellCount": 7500,
+      "plateletCount": 250000,
+      "glucose": 95,
+      "cholesterol": 180
+    },
+    "normalRanges": null,
+    "interpretation": "All values within normal range. Patient shows good health indicators.",
+    "status": "COMPLETED",
+    "notes": "Regular annual check-up",
+    "attachments": [],
+    "createdAt": "2023-04-15T11:45:00",
+    "updatedAt": "2023-04-15T11:45:00"
+  },
+  {
+    "id": "5e6f7a8b-9c0d-1e2f-3a4b-5c6d7e8f9a0b",
+    "patientId": "2b3c4d5e-6f7a-8b9c-0d1e-2f3a4b5c6d7e",
+    "testType": "URINE_TEST",
+    "testDateTime": "2023-05-10T14:15:00",
+    "performedBy": "Dr. Sarah Williams",
+    "resultValues": {
+      "color": "Yellow",
+      "appearance": "Clear",
+      "specificGravity": 1.018,
+      "pH": 6.2,
+      "protein": "Negative",
+      "glucose": "Negative",
+      "ketones": "Negative",
+      "blood": "Negative"
+    },
+    "normalRanges": null,
+    "interpretation": "Normal urinalysis with no significant findings.",
+    "status": "COMPLETED",
+    "notes": "Part of routine pregnancy screening",
+    "attachments": [],
+    "createdAt": "2023-05-10T15:30:00",
+    "updatedAt": "2023-05-10T15:30:00"
+  },
+  {
+    "id": "6f7a8b9c-0d1e-2f3a-4b5c-6d7e8f9a0b1c",
+    "patientId": "3c4d5e6f-7a8b-9c0d-1e2f-3a4b5c6d7e8f",
+    "testType": "BLOOD_TEST",
+    "testDateTime": "2023-06-05T09:00:00",
+    "performedBy": "Dr. James Wilson",
+    "resultValues": {
+      "hemoglobin": 13.8,
+      "whiteBloodCellCount": 6800,
+      "plateletCount": 230000,
+      "glucose": 130,
+      "HbA1c": 6.8
+    },
+    "normalRanges": null,
+    "interpretation": "Glucose levels slightly elevated. HbA1c indicates adequate diabetes control over past 3 months.",
+    "status": "COMPLETED",
+    "notes": "Quarterly diabetes check-up",
+    "attachments": [],
+    "createdAt": "2023-06-05T10:15:00",
+    "updatedAt": "2023-06-05T10:15:00"
+  },
+  {
+    "id": "7a8b9c0d-1e2f-3a4b-5c6d-7e8f9a0b1c2d",
+    "patientId": "1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d",
+    "testType": "IMAGING",
+    "testDateTime": "2023-07-20T13:45:00",
+    "performedBy": "Dr. Lisa Chen",
+    "resultValues": {
+      "imagingType": "X_RAY",
+      "bodyPart": "Chest",
+      "findings": "Clear lung fields. No evidence of pneumonia or other pathology. Heart size appears normal.",
+      "impression": "Normal chest X-ray."
+    },
+    "normalRanges": null,
+    "interpretation": "No abnormalities detected in chest X-ray.",
+    "status": "COMPLETED",
+    "notes": "Patient presented with mild cough for 3 days",
+    "attachments": [
+      {
+        "id": "8b9c0d1e-2f3a-4b5c-6d7e-8f9a0b1c2d3e",
+        "fileName": "chest_xray_20230720.jpg",
+        "fileType": "image/jpeg",
+        "description": "Frontal view of chest",
+        "uploadedAt": "2023-07-20T14:30:00",
+        "filePath": "/images/chest_xray_20230720.jpg"
+      }
+    ],
+    "createdAt": "2023-07-20T14:30:00",
+    "updatedAt": "2023-07-20T14:30:00"
+  },
+  {
+    "id": "9c0d1e2f-3a4b-5c6d-7e8f-9a0b1c2d3e4f",
+    "patientId": "2b3c4d5e-6f7a-8b9c-0d1e-2f3a4b5c6d7e",
+    "testType": "CARDIOLOGY",
+    "testDateTime": "2023-08-15T11:00:00",
+    "performedBy": "Dr. Michael Garcia",
+    "resultValues": {
+      "ecg": "Normal sinus rhythm. No ST changes or T-wave abnormalities.",
+      "heartRate": 72,
+      "bloodPressure": "118/76"
+    },
+    "normalRanges": null,
+    "interpretation": "Normal ECG with no evidence of ischemia or arrhythmias.",
+    "status": "COMPLETED",
+    "notes": "Routine cardiac assessment",
+    "attachments": [],
+    "createdAt": "2023-08-15T11:45:00",
+    "updatedAt": "2023-08-15T11:45:00"
+  }
+]
